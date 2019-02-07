@@ -34,6 +34,6 @@ services:
       - "5673:5671"
       - "5674:5672"
 
-#volumes:
-  #rabbitweb_data:
-  #rabbitlocal_data:
+volumes:
+  rabbitweb_data:
+  rabbitlocal_data:
