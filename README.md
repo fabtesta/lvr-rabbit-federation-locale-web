@@ -8,9 +8,10 @@ This is the Git repo of the [RabbitMQ LVR RabbitMQ "Locale-Web" Federation](http
 ~~~~
 docker run -d --hostname my-federated-rabbit-locale \
 --name my-federated-rabbit-locale \
--e RABBITMQ_FEDERATED_HOST=my-federated-rabbit-web' \
--e RABBITMQ_FEDERATION_UPSTREAM_NAME=from-locale-to-web' \
--e RABBITMQ_FEDERATION_POLICY_PATTERN=from-locale-to-web-policy-pattern' \
+-e RABBITMQ_FEDERATED_HOST=my-federated-rabbit-web \
+-e RABBITMQ_FEDERATION_UPSTREAM_NAME=from-locale-to-web \
+-e RABBITMQ_FEDERATION_POLICY_PATTERN=from-locale-to-web-policy-pattern \
+-p 15671:15672 -p 15672:15672 -p 5671:5671 -p 5672:5672 \
 fabtesta/lvr-rabbit-federation-locale-web:latest
 ~~~~
 
@@ -18,9 +19,10 @@ fabtesta/lvr-rabbit-federation-locale-web:latest
 ~~~~
 docker run -d --hostname my-federated-rabbit-web \
 --name my-federated-rabbit-web \
--e RABBITMQ_FEDERATED_HOST=my-federated-rabbit-locale' \
--e RABBITMQ_FEDERATION_UPSTREAM_NAME=from-web-to-locale' \
--e RABBITMQ_FEDERATION_POLICY_PATTERN=from-web-to-locale-policy-pattern' \
+-e RABBITMQ_FEDERATED_HOST=my-federated-rabbit-locale \
+-e RABBITMQ_FEDERATION_UPSTREAM_NAME=from-web-to-locale \
+-e RABBITMQ_FEDERATION_POLICY_PATTERN=from-web-to-locale-policy-pattern \
+-p 15673:15672 -p 15674:15672 -p 5673:5671 -p 5674:5672 \
 fabtesta/lvr-rabbit-federation-locale-web:latest
 ~~~~
 
